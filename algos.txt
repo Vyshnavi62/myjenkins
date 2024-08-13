@@ -1,0 +1,472 @@
+1/8/24
+
+algo:
+get sal of 5 numbers and find max sal
+1.start
+2.input the sal of 5 numbers as an array emp
+3.by traversing over a loop for 5 elements 
+4.add the numbers
+4.display sum
+5.end
+ 
+
+algo:
+1.start
+2.accept numbers
+3. if num>=100 and num<=999 then goto step 4 otherwise goto step step 5
+4.display the number
+5.otherwise go to next number
+6.stop
+
+algo :
+start
+accept p,r,n
+traverse loop until n
+calculate x=(1+r/n)
+caluculate y=nt
+z=x^y
+amt=p*z
+disply amt
+stop
+
+============---------------------==================-----------===========----------------==================-------------------------================
+============================================--------------------------------------------------======================--------------------------------
+==================--------------------------------------------=================================================================
+2/8/24
+
+control structures and loops
+if-else:used to inject logic
+
+algo: display grade of student based on marks
+1.start
+2.accept the marks of student
+3.if marks>=90:
+ 	display "grade is A"
+  else if  marks>=75 and marks<90:
+	display "grade is B"
+  else if  marks>=50 and marks<75:
+        display "grade is c"
+  else
+	display "grade is Fail"
+  end if
+4.stop
+
+-------------------------------------
+case: used in menu driven programming
+algo:
+check grade of emp and print sal
+1.start
+2.accept grade
+3.start switch case:
+	case 'A': print "salary =12000"
+ 	case 'B': print "salary = 15000"
+	case 'C': print "salary = 20000"
+   end switch
+4.display salary
+5.end
+------------------------------------------
+algo:player picks cards print score based on points of card
+club=2,spade=3,diomand=4,heart=6,joker=10
+1.start
+2.declare cardtype and points
+3.points=0
+4.accept card type
+5. start switch case with (card type)
+	case 'club': points+=2
+	case 'spade': points+=3
+	case 'diomand': points+=4
+	case 'heart': points+=6
+	case 'joker': points+=10
+	default:"enter valid cardtype"
+6. display points
+7.stop/end
+
+========------------------------------------------
+algo to accept details of cutomer until user enter 'n'.before each entry algo should ask,'do u want to continue? y/n'
+
+start
+step1.declare text customer name,customer address,text choice
+step2:repeate step3 to 6 as long as choice='y'
+step3:display "enter customer name and address"
+step4: accept name and address
+step5:display"do you want to cintinue?y/n"
+step6 accept choice
+end
+----------------------------------------------------
+
+algo accept numeric value from user,after each i/p ask if he wants to continue
+and all the entered by the user display sum and avg
+start
+step1.accept number
+step2:declare sum=0,avg,count=0,choice='y'
+step3:repeat step 4 to 8 as long as choice='y'
+step4:sum+=number,count++
+step5:display "sum"
+step6: display avg=sum/count
+step7:display "do you want to continue?y/n"
+step8 accept choice
+end
+==========================================================
+simple interest=p*r*t/100
+
+keywords:
+begin,end,i.p,get,read,compute,calculate,add,sub,initiate
+o/p,print,display,if,elif,endif,for,endfor,while,endwhile,repeat until
+
+pseudocode: accept details of 10 students name nd mks assidgn grade based on mks
+mks>90 display A
+mks>70 display B
+mks>50 display C
+mks<=0 display FAIL
+
+begin
+i=0
+repeat until i<10 
+read grade
+if mks>90: display 'A' 
+if mks>70: display 'B'
+if mks>50: display 'C'
+else:display 'A'
+end if 
+end
+
+=----------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+oops:
+ python data abstraction
+class Items:
+    def __init__(self,itemname,price,qty,batchno):
+        self.itemname=itemname
+        self.price=price
+        self.qty=qty
+        self.batchno=batchno
+    @property
+    def itemname(self):
+        return self._itemname
+    
+    @itemname.setter
+    def itemname(self,value):
+        self._itemname=value
+        
+    @property #getter method these are decorators
+    def price(self):
+        return self._price
+    
+    @price.setter #setter method
+    def price(self,value):
+        self._price=value
+    
+    @property #getter method
+    def qty(self):
+        return self._qty
+    
+    @qty.setter #setter method
+    def qty(self,value):
+        self._qty=value
+        
+    @property #getter method
+    def batchno(self):
+        return self._batchno
+    
+    @batchno.setter #setter method
+    def batchno(self,value):
+        self._batchno=value
+        
+i=Items("tea","20","12","2")
+print(i.itemname)
+print(i.price)
+print(i.qty)
+print(i.batchno)
+
+==================================================================================================
+==================================================================================================
+5/8/24
+abstraction class
+class declared abstract cannot is instantiated it's ale purpose is for inheritence
+
+				game
+                	  -----------------------
+
+				startgame()
+				stopgame()
+				checkscore()
+				declarewinner()
+                 
+					|
+			   _____________|____________________
+			   |			             |
+			Outdoorgame			Indoorgame
+			     |				    |
+		     ___________________	      ___________________
+		     |              	| 	      |			 |
+		single player       multiplayer     Indoor             Outdoor
+	
+
+
+
+#decorator abstract method ABC(Abstract Base Class)
+#to make abstract methods we need to import ABC class
+from abc import ABC,abstractmethod
+class onlinegame(ABC):
+    @abstractmethod
+    def singlepalyer(self):
+        pass
+    def multiplayer(self):
+        pass
+
+class offlinegame(ABC):
+    @abstractmethod
+    def indoor(self):
+       pass      
+    @abstractmethod
+    def outdoor(self):
+        pass
+        
+class Game(onlinegame,offlinegame):
+    def startgame(self):
+        print("game started")
+    def stopgame(self):
+        print("game stopped")
+    
+    def checkscore(self):
+        print("score calculated")
+        
+    def declarewinner(self):
+        print("winner announced")
+        
+   
+    
+    
+g=Game()
+g.startgame()
+g.stopgame()
+g.checkscore()
+g.declarewinner()
+
+---------------------------------------------------------------------
+solid properties of oop
+single responsibility principle: class should have this/one reason to change(split job into several classes),
+	saving of data should be done into other class,
+	this makes u to do single job
+open/close relationship:open for extenstion(declare abstract class inherit and overridden), close for modification(
+liskovs substitution principle:derived class should fully extendable by the base class
+interface seggregation principle:class will not implement any interface into class
+depencency inversion: higher lvl module should not depend on low lvl module
+
+
+case study::
+eric has to create an appln where he has to capture below details customer,emp,product
+the captured details have to be stored in a seperate file for each type of entity
+the classes created should be according to single responsibility principle and open/close principle
+there can be subtypes of product class like elctronics,fmcg,medicines etc
+
+case study:
+
+memory resources
+exception : appln terminate abnormally show error to user and exits by aborting all operations.
+the process where code recover from exception and allows to carry farward with appln is known as exception handling.
+python has raise keyword to hrow an exception manually
+
+write a class to accept customer details like customer name,age,,address and email id where customer age is entered, it is
+ensured that if text value entered instead of number the exception raised is properly handeled.
+
+
+==========================================================================================================================
+==========================================================================================================================
+==========================================================================================================================
+6/8/24
+
+data structures: linked list,stack,queue,graph,trees
+array: collection of elements of similar datatype stored adjacently
+x=[] #list, for array we need to use numpy library
+print(x[4])
+
+linked list: dynamic array node data structure  contains data that we want to store and address the next node
+class node :data nxt
+operations:
+add a node
+delete node
+search node
+update node
+---------------------------------------------------------
+
+stack:
+also
+1.start
+2.declare array
+3.declare variable top to poiny towards the top of stack
+4.create method push(data)
+5.assign data at top position array[top]=data
+ nd increment top value by 1 top++
+---------------------------------------------------
+
+queue:
+queue using linked list
+--using linked list
+1.two pointers required front and rear
+when queue is empty
+start=front=rear=null
+when only one node inserted
+Node n=new Node()
+start=rear=front=n
+when more nodes are inserted 
+n.next=start.next
+start=n
+rear=n
+ 
+to pop a node
+let v=front.data
+front=front.next
+
+--------------------------------------
+double linked list: node having prev and next values
+--------------------------------------------------------------------------------------------------------
+===============================================================================================================
+===============================================================================================================
+===============================================================================================================
+functional programming
+treat mathematical operations as computations and 
+higher order functions: func taking other func as i/p and return other func
+
+-------------------------------------------------------------------------------------------------------
+Activity
+
+an appln needs to be developed for capturing information related to telecommunication . 
+the entities involved are customer,employee,services,payment,plan,outlets and subscription
+class for each entity has to be designed seperately.
+the entity objects have to be captured in linkedlist data structure
+the final appln should allow us to perform crud operation for these entities over the data structure.
+
+-------------------------------------------------------------------------------------------------------
+
+Shallow Cloning: This creates a new object by copying the values of the original object’s fields.
+ If the field value is a reference to another object, only the reference address is copied. 
+Thus, if the referenced object is modified, the change is reflected in both the original and cloned objects.
+   	
+Deep Cloning: This involves creating a completely independent copy of an object, including any nested objects it refers to. 
+Changes made to the cloned object do not affect the original object.Deep cloning requires explicit implementation,
+often by overriding the clone() method and ensuring that nested objects are also cloned
+
+patterns:-
+structural patterns:
+behavioral patterns:
+
+-------------------------------------------------------------------------------------------------------------
+
+12/8/24
+
+devops:development+operations
+continous process development,continous testing,interative nature,constant collaborative in nature
+whole process is automated.
+CI(integration) process:
+server builds system and runs unit and integration testing.
+dast(ZAP tool),sast (dynamic and static analysis)tools used for checking dynamic vulnerabilities
+final stage continous monitoring (taking feedback and updating)
+devops pipeline contents:
+continous integration,deployment,testing tools.
+
+steps:
+static analysis is done sonar scanner
+anlysis is:::
+sonarqube
+go to bin->windows->start sonar
+cmd
+path startsonar
+websitre localhost:9000
+username:admin
+password :admin change password vyshnavi
+create project manually with project name and generate token
+Analyze "sampleapp": sqp_627eae817e8ab2781488157b4537bbbe7af80fba
+
+sonar-scanner.bat -D"sonar.projectKey=sampleapp" -D"sonar.sources=." -D"sonar.host.url=http://localhost:9000" -D"sonar.login=sqp_627eae817e8ab2781488157b4537bbbe7af80fba"
+
+solar scanner
+add environment variale->copy path open cmd past the sonar scanner cmd in cmd
+
+activity:SAST
+erric has earlier written a linked list appln in pyton put the code through sonarqube and generate report
+
+erric login:sonar.login=sqp_74b3f6ef5543d667f6350d2e8be5fc8b36ebcef5
+
+scanner url:>sonar-scanner.bat -D"sonar.projectKey=erric" -D"sonar.sources=." -D"sonar.host.url=http://localhost:9000" -D"sonar.login=sqp_74b3f6ef5543d667f6350d2e8be5fc8b36ebcef5"
+
+ques:
+what are the vulnerabilities did i detect?
+what is the solution the solarqube has given?
+what is code smell?
+can i actually apply suggested changes?
+can i do this process with other appln and how?
+
+DAST
+on running sample appln through zap tool what are the vulnerabilities noted
+
+name of page/resource vulnerbility type solution
+
+jenkins 
+agent:any
+stages in pipeline:
+clone
+build
+deploy
+
+
+
+trigger
+
+
+
+pipeline{
+agent any
+stages{
+stage('Clone'){
+
+
+activity
+Build the below given application following devops process
+A linkedkist containing objects of below class has to be created
+ 
+class Item
+	itemname
+	float price
+ 
+The application has to be updated too github and pulled into a pipeline in jenkins,build,deployed and executed
+additional task
+one member from the team will write test cases for application and send it to pipeline
+
+
+
+pipeline {
+    agent any
+    stages {        stage('Clone') {
+            steps {                git 'https://github.com/bhavanakothuri/jenkins'          }       
+            
+        
+    }
+            stage('Build') {
+            steps {
+                sh 'python -m compileall .'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'pytest'
+            }
+        }
+        
+        stage('Execute') {
+            steps {
+                sh 'python linkedlist.py
+            }
+        }
+    }
+}
+ 
+
+
+
+
+
+
+
+
+
